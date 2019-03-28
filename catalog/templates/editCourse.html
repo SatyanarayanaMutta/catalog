@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    <div class="form-group row">
+                        <h2>Editing {{course.name}}</h2>
+                        <label for="name" class="col">Title:</label>
+                        <input type="text" maxlength="50" class="form-control" id="name" name="name"
+                               value="{{course.name}}">
+                        <br>
+                        <label for="date" class="col">Date:</label>
+                        <input type="date" maxlength="10" class="form-control" id="date" name="date"
+                               value="{{course.date}}">
+                        <br>
+                        <label for="level" class="col">Level:</label>
+                        <input type="text" maxlength="50" class="form-control" id="level" name="level"
+                               value="{{course.level}}">
+                        <br>
+                        <label for="level" class="col">Cost:</label>
+                        <input type="text" maxlength="50" class="form-control" id="price" name="price"
+                               value="{{course.price}}">
+                        <br>
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" maxlength="1000" rows="5" id="description" name="description">
+                            {{course.description}}
+                        </textarea>
+                        <br>
+                        <label for="image">Image:</label>
+                        <input type="url" maxlength="1000" class="form-control" id="image" name="image"
+                               value="{{course.image}}">
+                        <br>
+                        <label for="branch">Branch:</label>
+                        <select class="form-control" id="branch" name="branch">
+                            {% for branch in branches %}
+                                {% if branch.name == editingCourseBranch.name %}
+                                    <option selected>{{branch.name}}</option>
+                                {% else %}
+                                    <option>{{branch.name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-ok">Save</span>
+                        </button>
+                        <a href="{{url_for('showCourse', branch_name=course.branch.name, course_name=course.name)}}">
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove">Cancel</span>
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

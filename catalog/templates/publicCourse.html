@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3">
+                <br>
+                
+                <img class="img-responsive" src="{{ course.image }}" alt="{{ course.name }}">
+                
+            </div>
+            <div class="col-md-9">
+                
+                <h2>{{course.name}}</h2>
+                <p>{{course.date}}</p>
+                <p>{{course.level}}</p>
+                <p>{{course.price}}</p>
+                <p>{{course.description}}</p>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,180 @@
+html,
+body {
+background-color:DodgerBlue;
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 70px;
+  background-color:DodgerBlue;
+  font-family: 'Eczar', serif;
+}
+footer {
+  padding: 30px 0;
+}
+
+.username {
+    color: #FF0000;
+}
+
+.welcome-msg {
+  color: #FF00FF;
+}
+
+/*
+ * Off Canvas
+ * ---------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+.flash {
+  background-color: #98FB98;
+  width:100%;
+  text-decoration: none;
+
+}
+
+.flash li {
+  list-style-type: none;
+  text-align: center;
+}
+
+.userpic {
+  background-color: transparent;
+}
+
+.row.is-flex {
+  margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.is-flex > [class*='col-'] {
+  margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand.
+* Use a preprocesser with autoprefixing.
+*/
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.no-margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #ff0000;
+}
+
+.btn-success.btn-outline {
+    color: #5cb855;
+}
+
+.btn-info.btn-outline {
+    color: #5b20de;
+}
+
+.btn-warning.btn-outline {
+    color: #f1ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d8534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+
+.img-responsive{
+    height:200px;
+    width:auto;/*maintain aspect ratio*/
+    max-width:230px;
+    
+}
+div.polaroid {
+  width: 230px;
+  height: 250px;  
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+<style>
+.img-responsive{
+    height:200px;
+    width:auto;/*maintain aspect ratio*/
+    max-width:230px;
+    
+}
+div.polaroid {
+  width: 230px;
+  height: 250px;
+  
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container1 {
+  text-align: center;
+  padding: 10px 20px;
+}
+</style>
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Branches</p>
+            <div class="list-group">
+                {% for branch in branches %}
+                    <a href="{{url_for('showBranchCourses', branch_name=branch.name)}}" class="list-group-item">{{branch.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="no-margin">{{chosenBranch.name}}</h2>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="{{url_for('editBranch', branch_name=chosenBranch.name)}}">Edit |</a>
+                        <a href="{{url_for('deleteBranch', branch_name=chosenBranch.name)}}">Delete</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row is-flex">
+                    {% for i in courses %}
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <a  href="{{url_for('showCourse', branch_name=i.branch.name, course_name=i.name)}}">
+                            <div class="gallery polaroid">
+                                <img class="img-responsive" src="{{ i.image }}" alt="{{ i.name }}" height="200px" width="100%">
+                                <div class="container1">{{i.name}}
+                                </a>
+                            </div>
+                            <div class="text-center">
+                            </div>
+                        </div>
+                </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            
+            <div class="col-md-3">
+                <br>
+                <img class="img-responsive" src="{{ course.image }}" alt="{{ course.name }}">
+            </div>
+            <div class="col-md-9">
+                <h2>{{course.name}}</h2>
+                <h2>{{course.date}}</h2>
+                <h2>{{course.level}}</h2>
+                <h2>{{course.price}}</h2>
+                <p>{{course.description}}</p>
+                <a href="{{url_for('editCourse', branch_name=course.branch.name, course_name=course.name)}}">Edit |</a>
+                <a href="{{url_for('deleteCourse', branch_name=course.branch.name, course_name=course.name)}}">Delete</a>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}

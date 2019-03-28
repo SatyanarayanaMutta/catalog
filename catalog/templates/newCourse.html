@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    <div class="form-group row">
+                        <h2>Adding New Course</h2>
+                        <label for="name" class="col">Title:</label>
+                        <input type="text" maxlength="50" class="form-control" id="name" name="name"
+                               placeholder="Title of the Course" required>
+                        <br>
+                        <input type="date" class="form-control" id="date" name="date"
+                               placeholder="DD-MM-YYYY" required>
+                        <br>
+                        <input type="text" maxlength="50" class="form-control" id="level" name="level"
+                               placeholder="Level of Course" required>
+                        <br>
+                        <input type="text" maxlength="50" class="form-control" id="price" name="price"
+                               placeholder="Cost for Course" required>
+                        <br>
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" maxlength="1000" rows="5" id="description" name="description"
+                              placeholder="Description of the course" required></textarea>
+                        <br>
+                        <label for="image">Image:</label>
+                        <input type="url" maxlength="1000" class="form-control" id="image" name="image"
+                               placeholder="Please provide a link to the Course image" required>
+                        <br>
+                        <label for="branch">Branch:</label>
+                        <select class="form-control" id="branch" name="branch" required>
+                            <option value="" selected>Choose Branch...</option>
+                            {% for branch in branches %}
+                                <option>{{branch.name}}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-pencil">Create</span>
+                        </button>
+                        <a href="{{url_for('showCatalog')}}">
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove">Cancel</span>
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
